@@ -88,6 +88,8 @@
 git clone https://github.com/yourusername/skillbridge.git
 cd skillbridge
 
+# Content added by Vrushali
+
 Objective:
 Design a database structure for your system, ensuring it is normalized, efficient, and scalable.
 Instructions:
