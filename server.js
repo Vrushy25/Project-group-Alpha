@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+
 const app = express();
 
 var corsOptions = {
@@ -8,28 +9,22 @@ var corsOptions = {
 
 app.use(cors(corsOptions));
 
-// Parse requests of content-type - application/json
+// parse requests of content-type - application/json
 app.use(express.json());
 
-// Parse requests of content-type - application/x-www-form-urlencoded
+// parse requests of content-type - application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true }));
 
-// Simple route
+// simple route
 app.get("/", (req, res) => {
-  res.json({ message: "Welcome to the application." });
+  res.json({ message: "Welcome to bezkoder application." });
 });
 
-// Ensure the path is correct and the file exists
-try {
-  const tutorialRoutes = require("./app/routes/tutorial.routes.js");
-  tutorialRoutes(app);  // Attach the routes
-} catch (error) {
-  console.error("Error loading tutorial routes:", error.message);
-}
+require("./app/routes/tutorial.routes.js")(app);
 
-// Set port, listen for requests
+// set port, listen for requests
 const PORT = process.env.PORT || 8080;
+require("./app/routes/tutorial.routes.js")(app);
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });
-
