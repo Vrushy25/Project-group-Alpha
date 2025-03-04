@@ -1,4 +1,4 @@
-const Tutorial = require("../config/models/tutorial.model.js");
+const Tutorial = require("../models/tutorial.model.js");
 
 // Create and Save a new Tutorial
 exports.create = (req, res) => {
@@ -34,6 +34,7 @@ exports.delete = (req, res) => {
 exports.deleteAll = (req, res) => {
   
 };
+
 exports.create = (req, res) => {
     // Validate request
     if (!req.body) {
@@ -59,6 +60,7 @@ exports.create = (req, res) => {
       else res.send(data);
     });
   };
+
   // Retrieve all Tutorials from the database (with condition).
 exports.findAll = (req, res) => {
     const title = req.query.title;
@@ -83,6 +85,7 @@ exports.findAll = (req, res) => {
       else res.send(data);
     });
   };
+
   exports.findOne = (req, res) => {
     Tutorial.findById(req.params.id, (err, data) => {
       if (err) {
@@ -98,6 +101,7 @@ exports.findAll = (req, res) => {
       } else res.send(data);
     });
   };
+
   exports.update = (req, res) => {
     // Validate Request
     if (!req.body) {
@@ -126,6 +130,7 @@ exports.findAll = (req, res) => {
       }
     );
   };
+
   exports.delete = (req, res) => {
     Tutorial.remove(req.params.id, (err, data) => {
       if (err) {
@@ -150,4 +155,4 @@ exports.findAll = (req, res) => {
         });
       else res.send({ message: `All Tutorials were deleted successfully!` });
     });
-  };
+  };  
