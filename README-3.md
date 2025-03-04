@@ -315,6 +315,153 @@ FROM Reviews r
 JOIN Users u ON r.professional_id = u.user_id
 WHERE r.reviewer_id = 1;
 
+# Content added by Vrushali
+Step 1: Create a Use Case Diagram
+A Use Case Diagram represents the interactions between users (actors) and the system's functionalities (use cases).
+Step 1.1: Identify Key Participants
+Participants, also known as actors, interact with the system to perform specific actions. Typical actors in a system include:
+•	User – A regular user who accesses the platform.
+•	Admin – Responsible for system management.
+•	System – Handles automated internal processes.
+
+Step 1.2: Define Core Functionalities (Use Cases)
+Use cases represent the primary functionalities provided by the system. Common use cases include:
+•	Register – Allows a user to create an account.
+•	Login – Enables users and admins to access the system.
+•	Search – Allows users to look for specific items.
+•	Manage Users – Admins can add or remove users.
+•	Manage Products – Admins can add or update product details.
+•	Place Order – Users can purchase items.
+•	View Order History – Users can check past transactions.
+
+Step 1.3: Map Actor-Use Case Interactions
+•	Users can perform actions like Register, Login, Search, Place Order, and View Order History.
+•	Admins have privileges to Login, Manage Users, and Manage Products.
+•	The System is responsible for automated tasks such as validating login credentials and processing orders.
+
+Step 2: Create a Class Diagram
+
+Step 1: Identify the Classes
+In the SkillBridge platform, potential classes might include:
+1.	User (represents any registered user, could be a learner, instructor, or admin)
+2.	Learner (inherits from User and represents individuals taking courses)
+3.	Instructor (inherits from User and represents individuals who create and teach courses)
+4.	Course (represents the skill development courses offered)
+5.	Module (represents individual learning units or topics within a course)
+6.	Assessment (represents tests, quizzes, or assignments to evaluate learners' skills)
+7.	Certification (represents the skill certification awarded to learners after completing courses)
+8.	Admin (inherits from User and manages platform functionalities and users)
+Step 2: Define Attributes and Methods
+•	User Class
+• Attributes: userID, name, email, password, role (learner, instructor, admin)
+• Methods: register(), login(), updateProfile(), viewCourses()
+•	Learner Class (inherits from User)
+• Attributes: learnerID, enrolledCourses, certifications
+• Methods: enrollInCourse(), completeAssessment(), viewCertification()
+•	Instructor Class (inherits from User)
+• Attributes: instructorID, createdCourses, bio
+• Methods: createCourse(), updateCourse(), gradeAssessment()
+•	Course Class
+• Attributes: courseID, courseName, description, instructorID, modules, duration
+• Methods: addModule(), updateCourseDetails(), viewCourseDetails()
+•	Module Class
+• Attributes: moduleID, moduleName, content, courseID
+• Methods: updateModuleContent(), viewModuleDetails()
+•	Assessment Class
+• Attributes: assessmentID, courseID, type (quiz, assignment), questions, passingCriteria
+• Methods: createAssessment(), gradeAssessment(), viewAssessmentResults()
+•	Certification Class
+• Attributes: certificationID, learnerID, courseID, certificationDate, validityPeriod
+• Methods: issueCertification(), viewCertificationDetails()
+•	Admin Class (inherits from User)
+• Attributes: adminID, adminName
+• Methods: manageUsers(), approveCourseContent(), viewReports()
+Step 3: Define Relationships
+•	Learner enrolls in Courses → Association (many-to-many: A learner can enroll in multiple courses, and a course can have multiple learners)
+•	Course is taught by Instructor → Association (one-to-many: An instructor can create multiple courses)
+•	Course contains Modules → Aggregation (one course can have multiple modules)
+•	Learner completes Assessments in Courses → Association (many-to-many: A learner can complete many assessments, and an assessment can be taken by many learners)
+•	Assessment is part of a Course → Association (one-to-many: A course can have multiple assessments)
+•	Learner receives Certification for a Course → Association (one-to-one: A learner receives one certification for completing a course)
+•	Admin manages Users, Courses, and Assessments → Association
+•	Admin is a type of User → Inheritance (Generalization)
+
+
+
+3. Develop a Sequence Diagram:
+A Sequence Diagram visually represents interactions between system components over time. It details how different objects communicate to accomplish a task.
+For SkillBridge, we will focus on two key functionalities:
+1.	User Registration
+2.	Course Enrollment
+
+Step 1: Identify Key Participants
+Each functionality involves specific actors (users interacting with the system) and objects (system components processing requests).
+1. User Registration
+•	Actors: User (Learner or Instructor)
+•	Objects:
+o	Registration Interface (UI)
+o	Authentication Module
+o	Database
+2. Course Enrollment
+•	Actors: Learner
+•	Objects:
+o	Learner Dashboard (UI)
+o	Course Management System
+o	Payment Gateway (if applicable)
+o	Database
+
+Step 2: Define Interaction Flow
+1. User Registration Process
+1.	The User accesses the registration page.
+2.	The User submits details like name, email, password, and role.
+3.	The Registration Interface forwards the data to the Authentication Module.
+4.	The Authentication Module validates the details.
+5.	It checks the Database for existing users.
+6.	If the user is new, the Database stores the details.
+7.	The Authentication Module confirms registration.
+8.	The Registration Interface displays a success message.
+Interactions:
+User → Registration Interface → Authentication Module → Database
+
+2. Course Enrollment Process
+1.	The Learner logs in and browses available courses.
+2.	The Learner selects a course and clicks "Enroll".
+3.	The Learner Dashboard sends an enrollment request to the Course Management System.
+4.	The Course Management System checks course availability.
+5.	If payment is needed, the Payment Gateway processes the transaction.
+6.	Upon successful payment, the Course Management System registers the learner in the Database.
+7.	The Course Management System sends an enrollment confirmation.
+8.	The Learner Dashboard displays a success message.
+Interactions:
+Learner → Learner Dashboard → Course Management System → Payment Gateway (if needed) → Database
+
+
+4.Create an Activity Diagram:
+An Activity Diagram visually represents the workflow of a process in the system. For SkillBridge, we will illustrate the Course Enrollment & Payment Process as an activity diagram.
+
+Step 3: Activity Diagram:
+Step 1: Outline the Main Stages of the Process
+The Course Enrollment & Payment Process consists of the following stages:
+1.	The learner browses and selects a course from the course catalog.
+2.	The system determines whether the course is free or paid.
+o	If the course is free, the learner is immediately enrolled.
+o	If the course is paid, the process moves to the payment stage.
+3.	The learner chooses a payment method (e.g., Credit Card, PayPal).
+4.	The learner enters and submits payment details.
+5.	The Payment Gateway processes the transaction.
+6.	If payment is successful, the learner is enrolled in the course.
+o	If the payment fails, the learner is prompted to retry or select another payment method.
+7.	The system confirms enrollment and grants the learner access to course materials.
+
+Step 2: Visualizing the Workflow in an Activity Diagram
+Key Components to Include:
+•	Start Node: Indicates the initiation of the process.
+•	Actions: Represent tasks such as course selection, payment processing, and confirmation.
+•	Decision Nodes: Handle conditions like Free vs. Paid Course and Payment Success vs. Failure.
+•	Final Node: Marks the completion of the process.
+
+
+
  
 
 
