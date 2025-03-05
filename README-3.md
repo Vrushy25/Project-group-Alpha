@@ -460,6 +460,78 @@ Key Components to Include:
 •	Decision Nodes: Handle conditions like Free vs. Paid Course and Payment Success vs. Failure.
 •	Final Node: Marks the completion of the process.
 
+# content added by Vrushali
+
+Task 4: Requirement Engineering Document
+Objective:
+Document the functional and non-functional requirements of the system.
+1. Introduction
+SkillBridge is a career development and training platform aimed at helping users connect with job opportunities, skill-enhancing programs, and training resources. It is specifically designed to assist job seekers and transitioning professionals in finding opportunities aligned with their skills and career goals.
+2. Functional Requirements
+The system must include the following essential features:
+2.1 User Registration & Authentication
+•	Users should be able to create an account, log in, and reset their passwords securely.
+•	Multi-factor authentication (MFA) should be implemented for enhanced security.
+2.2 Profile Management
+•	Users must have the ability to edit their personal information, update their skills, and upload resumes.
+2.3 Job Listings & Training Opportunities
+•	Users should be able to explore job postings and training programs with filter and search functionalities.
+•	Employers must be able to post job listings and review applications.
+2.4 Application & Progress Tracking
+•	The system should allow users to apply for positions and monitor their application status.
+2.5 Recommendation System
+•	Job and training recommendations should be provided based on the user’s profile and preferences.
+2.6 Settings & Notifications
+•	Users should be able to personalize their preferences, set job alerts, and manage notifications.
+3. Non-Functional Requirements
+The system must also meet the following quality standards:
+3.1 Performance
+•	Pages should load within two seconds under normal usage conditions.
+•	The platform should support at least 1,000 concurrent users efficiently.
+3.2 Security
+•	User data must be encrypted using AES-256 encryption.
+•	Implement role-based access control (RBAC) for user permissions.
+3.3 Scalability
+•	The system should be capable of handling increased user activity without compromising performance.
+3.4 Usability
+•	The interface must be mobile-responsive and accessible across different devices.
+•	The platform should adhere to WCAG accessibility guidelines.
+
+
+4️ User Stories & Acceptance Criteria
+User Story 1: User Registration
+👉 "As a new user, I want to create an account so that I can access personalized features."
+✅ Acceptance Criteria:
+•	Users must enter a valid email, password, and name during registration.
+•	Passwords must contain at least eight characters, including a number and a special symbol.
+•	A verification email should be sent after registration.
+User Story 2: Job Search & Filtering
+👉 "As a user, I want to search for jobs and apply filters to find the most relevant opportunities."
+✅ Acceptance Criteria:
+•	Users should be able to search using keywords, location, salary range, and industry.
+•	Filters must function instantly without reloading the page.
+User Story 3: Job Application Process
+👉 "As a job seeker, I want to apply for jobs and track my application status."
+✅ Acceptance Criteria:
+•	Users must submit a resume and cover letter when applying.
+•	The system should track and display the status of job applications.
+User Story 4: Profile Editing
+👉 "As a user, I want to update my profile to reflect my latest skills and experience."
+✅ Acceptance Criteria:
+•	Users must be able to edit their name, bio, skills, and resume.
+•	Any updates should be saved and reflected instantly.
+User Story 5: Notifications & Alerts
+👉 "As a user, I want to receive notifications for relevant job opportunities."
+✅ Acceptance Criteria:
+•	Users should have the option to enable email or push notifications.
+•	Notifications must be sent only for job opportunities that match user preferences.
+
+Conclusion
+This document outlines the core functional and non-functional requirements of SkillBridge, ensuring an efficient and user-friendly experience. It also defines user stories and acceptance criteria to guide the system's development and evaluation process.
+
+
+
+
 
 
  
